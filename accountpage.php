@@ -1,15 +1,19 @@
 
-
+<!--
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */-->
  <html>
-     <head></head>
+     <head>
+         <title></title>
+     </head>
      <body>
          <header>
              You are logged-in
+             <br>
+             <input type="submit" value="signout">
          </header>
      </body>
  </html>
