@@ -20,14 +20,13 @@
 
             <h3>Login Details</h3>
             <div id="msg"></div>
-            <form id="myForm">
-
-                <label>Name:<span>*</span></label><input type="text" id="name" name="name" placeholder="Your name">
+                <form method="post" action="values.php">
+                <label>Name:<span>*</span></label><input type="text" id="uname" name="uname" placeholder="Your name">
                 <span class="hidden" id="fname"></span>
                 <br>
-                <label>password:<span>*</span></label><input type="password" id="password" name="name" placeholder="Your password">
+                <label>password:<span>*</span></label><input type="password" id="password" name="password" placeholder="Your password">
                 <div id="submt">
-                    <input type="submit" value="submit">
+                    <input type="submit" value="submit" name="login">
                 </div>
             </form>
 
