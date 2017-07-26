@@ -6,6 +6,19 @@
  * and open the template in the editor.
  */
 -->
+<?php
+if (isset($_FILES["uploadfilefield"]))
+{
+    $uploadname=$_FILES["uploadfilefield"]["name"];
+    $uploadtmp=$_FILES["uploadfilefield"]["tmp_name"];
+    if(!$uploadtmp){
+        die('no file selected');
+         }
+    else{
+        move_uploaded_file($uploadtmp,upload/$uploadname);
+    }
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -14,6 +27,7 @@
           <script src="newjavascript.js"></script>
         <title></title>
     </head>
+    
     <body>
         
         <br>
@@ -27,7 +41,11 @@
                 <label>Name:<span>*</span></label><input type="text" id="name" name="name" placeholder="Your name">
                 <span class="hidden" id="fname"></span>
                 <br>
-                <label>Password:<span>*</span></label><input type="password" id="password" name="password" placeholder="Your password">
+                <label>Password:<span>*</span></label><input type="password" id="password1" name="password1" placeholder="Your password">
+                   <span class="hidden" id="pwd1"></span>
+                <br>
+                <label>Retype-Password:<span>*</span></label><input type="password" id="password2" name="password2" placeholder="Your password">
+                   <span class="hidden" id="pwd2"></span>
                 <br>
                 <label>Email:<span>*</span></label><input type="text" id="email" name="email" placeholder="Your email id">
                 <span class="hidden" id="mail"></span>
@@ -50,7 +68,8 @@
                     <span class="hidden" id="fbd"></span>
                 </div>
                 <br>
-                 <input type="file" name="fileToUpload" id="fileToUpload">
+                 <input type="file" name="uploadfilefield" id="uploadfilefield">
+                
                 <br>
                 <br>
                 <div id="submt">
