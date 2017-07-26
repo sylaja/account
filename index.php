@@ -20,11 +20,12 @@ and open the template in the editor.
                 <h2>Our Registered Users</h2>
             <?php
             $db = mysqli_connect('localhost', 'root', 'admin@123', 'db2');
-            $query = "SELECT name,email,address FROM users";
+            $query = "SELECT name,email,address,pic FROM users";
             $result = mysqli_query($db, $query);
 
-            echo "<table border='1'bordercolor='black' width='100%' border-collapse='collapse'>
+            echo "<table width='100%'>
                 <tr>
+                <th>Profile Picture</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>City</th>
@@ -32,9 +33,11 @@ and open the template in the editor.
 
             while ($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
+                echo "<td><img src='".$row['pic']."' /></td>";
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['address'] . "</td>";
+                
                 echo "</tr>";
             }
             echo "</table>";

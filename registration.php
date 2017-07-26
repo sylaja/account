@@ -6,19 +6,7 @@
  * and open the template in the editor.
  */
 -->
-<?php
-if (isset($_FILES["uploadfilefield"]))
-{
-    $uploadname=$_FILES["uploadfilefield"]["name"];
-    $uploadtmp=$_FILES["uploadfilefield"]["tmp_name"];
-    if(!$uploadtmp){
-        die('no file selected');
-         }
-    else{
-        move_uploaded_file($uploadtmp,upload/$uploadname);
-    }
-}
-?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -36,7 +24,7 @@ if (isset($_FILES["uploadfilefield"]))
 
             <h3>Registration Details</h3>
             <div id="msg"></div>
-            <form id="myForm" method="post" action="values.php">
+            <form id="myForm" method="post" action="values.php" enctype="multipart/form-data">
 
                 <label>Name:<span>*</span></label><input type="text" id="name" name="name" placeholder="Your name">
                 <span class="hidden" id="fname"></span>
@@ -68,12 +56,13 @@ if (isset($_FILES["uploadfilefield"]))
                     <span class="hidden" id="fbd"></span>
                 </div>
                 <br>
-                 <input type="file" name="uploadfilefield" id="uploadfilefield">
+                <label>Choose your picture:<span>*</span></label>
+                 <input type="file" name="photo" id="photo">
                 
                 <br>
                 <br>
                 <div id="submt">
-                    <input type="submit" value="submit" name="register">
+                    <input type="submit" value="submit" name="submit">
                     <br>
                       Already a member? <a href="login.php"> Login </a>
                 </div>
