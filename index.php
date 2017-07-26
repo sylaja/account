@@ -23,7 +23,7 @@ and open the template in the editor.
             $query = "SELECT name,email,address FROM users";
             $result = mysqli_query($db, $query);
 
-            echo "<table border='1' width='100%' border-collapse='collapse'>
+            echo "<table border='1'bordercolor='black' width='100%' border-collapse='collapse'>
                 <tr>
                 <th>Username</th>
                 <th>Email</th>
