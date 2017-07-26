@@ -14,6 +14,24 @@ $(document).ready(function () {
             $('#fname').addClass('hidden');
         }
     });
+    $('#password1').keyup(function () {
+        if (($("#password1").val().length)<6)
+        {
+            $('#pwd1').removeClass('hidden');
+            $('#pwd1').text("Password must be atleast 6");
+        } else {
+            $('#pwd1').addClass('hidden');
+        }
+    });
+    $('#password2').keyup(function () {
+        if (($("#password2").val()!=$("#password1").val()))
+        {
+            $('#pwd2').removeClass('hidden');
+            $('#pwd2').text("invalid password");
+        } else {
+            $('#pwd2').addClass('hidden');
+        }
+    });
     $('#email').keyup(function () {
         if (!($("#email").val().match('^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')))
         {
@@ -32,15 +50,15 @@ $(document).ready(function () {
             $('#nomobile').addClass('hidden');
         }
     });
-   /* $('#dept').blur(function () {
-        if ($("#dept").val() == "")
-        {
-            $('#department').removeClass('hidden');
-            $('#department').text("select department");
-        } else {
-            $('#department').addClass('hidden');
-        }
-    });*/
+    /* $('#dept').blur(function () {
+     if ($("#dept").val() == "")
+     {
+     $('#department').removeClass('hidden');
+     $('#department').text("select department");
+     } else {
+     $('#department').addClass('hidden');
+     }
+     });*/
     $('#feedback').keyup(function () {
         if ($("#feedback").val() == "")
         {
@@ -57,7 +75,7 @@ $(document).ready(function () {
         var dep = document.getElementById('dept').value;
         var f = document.getElementById('feedback').value;
         if (n == "" && e == "" && m == "" && dep == "" && f == "") {
-            document.getElementById('msg').innerHTML ="Fields with(*) are mandatory";
+            document.getElementById('msg').innerHTML = "Fields with(*) are mandatory";
             return false;
         }
         if (!$('input[name=gender]:checked').val()) {
