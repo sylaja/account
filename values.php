@@ -25,7 +25,11 @@ if (isset($_POST['login'])) {
         $_SESSION['success'] = "you are logged in";
         header('location:accountpage.php');
     } else {
-        echo "wrong username and password";
-    }
+        
+        echo"wrong username and password";
+          header('location:login.php');
+      }
+    
+    
 }
 ?>
