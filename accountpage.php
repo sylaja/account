@@ -13,7 +13,10 @@
          <header>
              You are logged-in
              <br>
+             <form>
              <input type="submit" value="signout">
+             </form>
+           
          </header>
      </body>
  </html>
