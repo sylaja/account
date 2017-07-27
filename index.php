@@ -7,23 +7,23 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-         <link rel="stylesheet" type="text/css" href="newcss.css">
+        <link rel="stylesheet" type="text/css" href="newcss.css">
         <title></title>
     </head>
     <body>
         <div class="st">
             <div id="bt">
-            <a href="registration.php"><input type="submit" id="sub1" value="register"></a>
-            <a href="login.php"><input type="submit" id="sub2" value="login"></a>
+                <a href="registration.php"><input type="submit" id="sub1" value="register"></a>
+                <a href="login.php"><input type="submit" id="sub2" value="login"></a>
             </div>
-        <div id="tb">
+            <div id="tb">
                 <h2>Our Registered Users</h2>
-            <?php
-            $db = mysqli_connect('localhost', 'root', 'admin@123', 'db2');
-            $query = "SELECT name,email,address,pic FROM users";
-            $result = mysqli_query($db, $query);
+                <?php
+                $db = mysqli_connect('localhost', 'root', 'admin@123', 'db2');
+                $query = "SELECT name,email,address,pic FROM users";
+                $result = mysqli_query($db, $query);
 
-            echo "<table width='100%'>
+                echo "<table width='100%' border=2>
                 <tr>
                 <th>Profile Picture</th>
                 <th>Username</th>
@@ -31,20 +31,20 @@ and open the template in the editor.
                 <th>City</th>
                 </tr>";
 
-            while ($row = mysqli_fetch_array($result)) {
-                echo "<tr>";
-                echo "<td><img src='".$row['pic']."' /></td>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['address'] . "</td>";
-                
-                echo "</tr>";
-            }
-            echo "</table>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>";
+                    echo "<td><img src='" . $row['pic'] . "' /></td>";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $row['address'] . "</td>";
 
-            mysqli_close($con);
-            ?>
-        </div>
+                    echo "</tr>";
+                }
+                echo "</table>";
+
+                mysqli_close($con);
+                ?>
+            </div>
         </div>
     </body>
 </html>

@@ -4,7 +4,7 @@ $conn = mysqli_connect("localhost", "root", "admin@123", "db2");
 if (isset($_POST['submit'])) {
     $target = "upload/";
     $username = $_POST['name'];
-    $password = md5($_POST['password']);
+    $password = md5($_POST['password1']);
     $email = $_POST['email'];
     $mobile = $_POST['mobile'];
     $dob = $_POST['dob'];

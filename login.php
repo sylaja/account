@@ -6,6 +6,11 @@
  * and open the template in the editor.
  */
 -->
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location:accountpage.php');
+}?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -42,7 +47,8 @@
                 <br>
                 <label>password:<span>*</span></label><input type="password" id="password" name="password" placeholder="Your password">
                 <div id="submt">
-                    <input type="submit" value="submit" name="login">
+                    <input type="submit" value="submit" name="login"><br>
+                    Not a member? <a href="registration.php"> Register</a>
                 </div>
             </form>
 

@@ -7,29 +7,27 @@
  */-->
 <?php
 session_start();
-if(!isset($_SESSION['username'])) {
-    header('location:login.php');
-}
-if(isset($_GET['logout'])){
-    session_destroy();
-    unset($_SESSION['username']);
+if (!isset($_SESSION['username'])) {
     header('location:login.php');
 }
 ?>
- <html>
-     <head>
-         <title></title>
-     </head>
-     <body>
-         <header>
-             You are logged-in
-             <br>
-         </header>
-         <?php if (isset($_SESSION['username'])) : ?>
-                <center>
-                    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                    <p> <a href="login.php?logout='1'" style="color: red;"><input type="submit" id="home_bt" value="Log Out"></a> </p>
-                </center>
-            <?php endif ?>
-     </body>
- </html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <link rel="stylesheet" type="text/css" href="newcss.css">
+        <header>
+            You are logged-in
+            <br>
+        </header>
+        <?php if (isset($_SESSION['username'])) : ?>
+        <center>
+            <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+            <form action="logout.php" method="post">
+            <p> <input type="submit" id="home_bt" value="Log Out"> </p>
+            </form>
+        </center>
+    <?php endif ?>
+</body>
+</html>
